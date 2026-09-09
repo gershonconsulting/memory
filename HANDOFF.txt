@@ -1,0 +1,139 @@
+================================================================
+MASTER HANDOFF - GERSHON CONSULTING PLATFORM PORTFOLIO
+================================================================
+Owner   : Olivier Attia, Founder / CTO, Gershon Consulting LLC
+Contact : oattia@gmail.com | report@gershonconsulting.com
+GitHub  : github.com/gershonconsulting  (33 repos)
+Updated : 2026-09-09
+Written by: Claude (Anthropic), under the token-limit handoff protocol - see section 1.
+================================================================
+
+1. WHY THIS FILE EXISTS
+----------------------------------------------------------------
+Claude has a weekly / daily token allowance. When it hits 90%, work stops until
+the allowance resets. To stop that from blocking Olivier, the standing protocol is:
+
+  At 90% of the daily or weekly allowance - or the moment an 'Approaching weekly
+  limit' banner appears - Claude must:
+    (1) push the latest code to ALL repos, and
+    (2) write / refresh HANDOFF.txt at the root of every touched repo, plus
+        refresh this master file,
+  so that ANY other AI (ChatGPT, Gemini, Copilot, another Claude) can pick the
+  work up with zero context from Olivier.
+
+THIS FILE IS THE PICKUP POINT. Start here, then open the HANDOFF.txt inside
+whichever repo you are asked to work on.
+
+2. HOW TO WORK WITH OLIVIER - READ BEFORE ANYTHING ELSE
+----------------------------------------------------------------
+* He is a NON-TECHNICAL founder acting as CTO. He decides; the AI executes.
+* He has NO terminal, NO CLI, NO git, NO PowerShell. Never hand him a command,
+  a script, a .bat file, or a 'just run this' step. That is a hard failure.
+* He does NOT upload, download, move or save files, and does not click buttons
+  an AI injected. If an artifact must reach a repo or a host, the AI finds the
+  route and executes it.
+* Reply format on any actionable request:
+    GREEN CHECK = done and ready for him to test, plus the link
+    RED CROSS   = still something to do, plus EXACTLY 3 options, all of which he
+                  can personally action (an AI does it / a dashboard click /
+                  delegate to Charles or Ariel). Never offer a CLI option.
+* The same GREEN/RED marker convention applies to every task written into a
+  status file or handoff, not just chat replies.
+* Executors:  Ariel = code and repository work.
+              Charles = Chrome extension + web admin panels (Cloudflare, GitHub
+              settings and secrets, DNS, publishing).
+* He wants to be alerted by VOICE, not silent popups.
+
+3. STANDING TECHNICAL DEFAULTS
+----------------------------------------------------------------
+Hosting default   : Hostinger Business v3 shared hosting
+VPS               : only for full-stack apps with their own Postgres or >500MB RAM
+Not for new work  : Vercel, Cloudflare Pages (legacy projects may still sit there)
+CDN / DNS / SSL   : Cloudflare, preserving email DNS records
+Registrar         : Tierra.net        SSL: Let's Encrypt
+Deploy            : GitHub Actions FTP auto-deploy
+Every new platform gets: info@ mailbox + support@/sales@/billing@/social@
+  forwarders, Stripe, SSL, GitHub Actions deploy, 1Password vault entry,
+  Live Sites Inventory entry
+Verify DNS/SSL/email with MXtoolbox SuperTool on every launch
+Per-project deliverable: RUNBOOK_<project>.md in /docs/
+Secrets live in 1Password. NEVER commit credentials to a repo.
+
+4. REPOSITORY INDEX
+----------------------------------------------------------------
+All under github.com/gershonconsulting. Most map to a *.gershoncrm.com subdomain
+or their own domain. Where a live URL is marked (verify), confirm it first.
+
+  ACTIVE / RECENTLY TOUCHED
+  pulse        - pulse.gershoncrm.com - LinkedIn outreach intelligence dashboard
+  linalysis    - Linalysis - AI LinkedIn analytics SaaS. Push-to-deploy via
+                 GitHub Actions.
+  radar        - (verify) monitoring / alerting surface
+  social       - social.gershoncrm.com - social post collection (Phantombuster
+                 digest). WARNING: default branch is
+                 claude/social-campaign-verification-jiG5E, NOT main.
+  nexashare    - nexashare.com - LinkedIn-first automation SaaS with AI content
+                 and tiered subscriptions. 3 open issues.
+  family       - attia.net - private family genealogy app (PHP)
+  gershonCRM   - crm.gershoncrm.com - Streak-style CRM SaaS
+  task         - task.gershoncrm.com (verify) - task platform
+  gershonAI    - gershon.ai / ai.gershon.ai
+
+  PLATFORM SUITE
+  client       - client.gershoncrm.com
+  finance      - finance.gershoncrm.com - weekly financial email report
+  company      - company.gershoncrm.com - Streak-based CRM administration
+  form         - form.gershoncrm.com - conversational onboarding form
+  report       - report.gershoncrm.com - client one-pager generator
+  E2           - e2.gershoncrm.com - E2-visa lead generation
+  Xpensepro    - expenses.gershoncrm.com - expense management.
+                 WARNING: default branch claude/expense-tracking-app-OGkCs
+  groups       - LinkedIn Group Intelligence
+  LIFollowers  - LinkedIn follower growth service
+  onboarding   - onboarding flow
+  EnricherPro  - enricherpro.com - B2B email finding / verification (Dart)
+  CookieVerify - cookieverify.com - LinkedIn cookie validation
+
+  MARKETING / CONTENT SITES
+  MyBusinessInUSA  - mybusinessinusa.com - US market entry lead gen hub
+  AmericanAbroad   - americanabroad.net - expat resource hub
+  AmericanInFrance - companion site
+  ROI              - roi.gershoncrm.com - ROI calculator sales tool
+  attia            - attia.net front end
+
+  PERSONAL / SIDE
+  pelicanbaysintmaarten + pelicanbay-calendar - pelicanbaysintmaarten.com,
+                 short-term rental villa in Sint Maarten, plus booking calendar
+  songandstories - songandstories.com - Souvenir memory-film maker.
+                 WARNING: default branch claude/youtube-lyrics-generator-s3uGh
+  HomeVideoCreation - video creation pipeline
+  balines57      - Balines 2026 birthday invitation
+  datenight      - side project
+  memory         - THIS REPO. Handoff and context store.
+
+5. STATE OF THE HANDOFF SYSTEM ITSELF
+----------------------------------------------------------------
+[DONE] Protocol agreed and recorded (2026-09-09).
+[DONE] This master file and HANDOFF_TEMPLATE.txt created.
+[TODO] Per-repo HANDOFF.txt not yet written into each of the 33 repos.
+       Only the master and the template exist so far.
+[TODO] The GitHub API connector Claude uses is READ-ONLY - it returns 403 on
+       write. Commits therefore have to go through the GitHub web UI in the
+       browser, which is slow and token-expensive. Granting write scope to the
+       GitHub integration would make every future handoff far cheaper.
+       This is a Charles / dashboard task.
+
+6. WHAT AN INCOMING AI SHOULD DO FIRST
+----------------------------------------------------------------
+1. Read section 2 twice. Most failures with Olivier are process failures,
+   not technical ones.
+2. Ask which platform he wants to move forward - do not try to work the whole
+   portfolio at once.
+3. Open that repo's HANDOFF.txt at the root. If it does not exist, read the
+   README and the recent commits, then WRITE one before doing anything else.
+4. Work in small shippable increments. Ship, then report with a GREEN CHECK and
+   a link, or a RED CROSS and 3 real options.
+
+================================================================
+END OF MASTER HANDOFF
+================================================================
