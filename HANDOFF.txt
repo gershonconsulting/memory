@@ -4,7 +4,7 @@ MASTER HANDOFF - GERSHON CONSULTING PLATFORM PORTFOLIO
 Owner   : Olivier Attia, Founder / CTO, Gershon Consulting LLC
 Contact : oattia@gmail.com | report@gershonconsulting.com
 GitHub  : github.com/gershonconsulting  (33 repos)
-Updated : 2026-09-09
+Updated : 2026-09-09 (9 repo handoffs written)
 Written by: Claude (Anthropic), under the token-limit handoff protocol - see section 1.
 ================================================================
 
@@ -115,13 +115,31 @@ or their own domain. Where a live URL is marked (verify), confirm it first.
 ----------------------------------------------------------------
 [DONE] Protocol agreed and recorded (2026-09-09).
 [DONE] This master file and HANDOFF_TEMPLATE.txt created.
-[TODO] Per-repo HANDOFF.txt not yet written into each of the 33 repos.
-       Only the master and the template exist so far.
-[TODO] The GitHub API connector Claude uses is READ-ONLY - it returns 403 on
-       write. Commits therefore have to go through the GitHub web UI in the
-       browser, which is slow and token-expensive. Granting write scope to the
-       GitHub integration would make every future handoff far cheaper.
-       This is a Charles / dashboard task.
+[DONE] Per-repo HANDOFF.txt written and verified in the 9 ACTIVE
+       repos: pulse, linalysis, gershonCRM, nexashare, radar, task,
+       family, gershonAI, social. Each carries that repo's stack,
+       deploy route, done/pending items, known bugs, the single next
+       action, and its own gotchas.
+[TODO] The remaining 24 repos have no HANDOFF.txt yet. They are the
+       quieter ones - the platform suite (client, finance, company,
+       form, report, E2, Xpensepro, groups, LIFollowers, onboarding,
+       EnricherPro, CookieVerify), the marketing sites, and the
+       personal projects. Write one when you next touch any of them.
+[TODO] The GitHub API connector Claude uses is READ-ONLY - it returns
+       403 on write, even though the Claude GitHub App installation
+       shows read+write on code for all repositories. The two are
+       different credentials. Commits therefore go through the GitHub
+       web UI in the browser.
+       THE CHEAPEST WORKING METHOD for a text file, found 2026-09-09:
+       open /new/<branch> (or /edit/<branch>/<path>), set the filename
+       field via the native HTMLInputElement value setter plus an
+       'input' event (the field is React-controlled), then focus
+       .cm-content and use document.execCommand('insertText') after
+       selectAll. Click 'Commit changes...', fill the dialog's text
+       input the same way, click the dialog's 'Commit changes'.
+       No file staging, no uploads, no coordinate clicking.
+       On an EMPTY repo /new/main redirects - click the 'creating a
+       new file' link on the splash page first, then reload.
 
 6. WHAT AN INCOMING AI SHOULD DO FIRST
 ----------------------------------------------------------------
