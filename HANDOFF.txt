@@ -3,8 +3,8 @@ MASTER HANDOFF - GERSHON CONSULTING PLATFORM PORTFOLIO
 ================================================================
 Owner   : Olivier Attia, Founder / CTO, Gershon Consulting LLC
 Contact : oattia@gmail.com | report@gershonconsulting.com
-GitHub  : github.com/gershonconsulting  (33 repos)
-Updated : 2026-09-09 (9 repo handoffs written)
+GitHub  : github.com/gershonconsulting  (48 repos listed 2026-10-22)
+Updated : 2026-11-07 (see section 7 for the merge/deploy state per repo)
 Written by: Claude (Anthropic), under the token-limit handoff protocol - see section 1.
 ================================================================
 
@@ -63,25 +63,30 @@ Secrets live in 1Password. NEVER commit credentials to a repo.
 ----------------------------------------------------------------
 All under github.com/gershonconsulting. Most map to a *.gershoncrm.com subdomain
 or their own domain. Where a live URL is marked (verify), confirm it first.
+Marker [HANDOFF] = repo has its own HANDOFF.txt on main.
+Marker [HANDOFF-PR] = HANDOFF.txt written 2026-10-22, in an open PR awaiting merge
+  (branch nightly/2026-10-22-handoff).
 
   ACTIVE / RECENTLY TOUCHED
-  pulse        - pulse.gershoncrm.com - LinkedIn outreach intelligence dashboard
+  pulse        - pulse.gershoncrm.com - LinkedIn outreach intelligence dashboard [HANDOFF]
   linalysis    - Linalysis - AI LinkedIn analytics SaaS. Push-to-deploy via
-                 GitHub Actions.
-  radar        - (verify) monitoring / alerting surface
+                 GitHub Actions. [HANDOFF]
+  radar        - (verify) monitoring / alerting surface [HANDOFF]
   social       - social.gershoncrm.com - social post collection (Phantombuster
                  digest). WARNING: default branch is
-                 claude/social-campaign-verification-jiG5E, NOT main.
+                 claude/social-campaign-verification-jiG5E, NOT main. [HANDOFF]
   nexashare    - nexashare.com - LinkedIn-first automation SaaS with AI content
-                 and tiered subscriptions. 3 open issues.
-  family       - attia.net - private family genealogy app (PHP)
-  gershonCRM   - crm.gershoncrm.com - Streak-style CRM SaaS
-  task         - task.gershoncrm.com (verify) - task platform
-  gershonAI    - gershon.ai / ai.gershon.ai
+                 and tiered subscriptions. 3 open issues. [HANDOFF]
+  family       - attia.net - private family genealogy app (PHP) [HANDOFF]
+  gershonCRM   - crm.gershoncrm.com - Streak-style CRM SaaS [HANDOFF]
+  task         - task.gershoncrm.com (verify) - task platform [HANDOFF]
+  gershonAI    - gershon.ai / ai.gershon.ai [HANDOFF]
 
   PLATFORM SUITE
   client       - client.gershoncrm.com
-  finance      - finance.gershoncrm.com - weekly financial email report
+  finance      - finance.gershoncrm.com - Xero AR dashboard + weekly financial
+                 report. Cloudflare Pages. API auth gate blocks the weekly
+                 report (see its HANDOFF). [HANDOFF-PR]
   company      - company.gershoncrm.com - Streak-based CRM administration
   form         - form.gershoncrm.com - conversational onboarding form
   report       - report.gershoncrm.com - client one-pager generator
@@ -91,13 +96,30 @@ or their own domain. Where a live URL is marked (verify), confirm it first.
   groups       - LinkedIn Group Intelligence
   LIFollowers  - LinkedIn follower growth service
   onboarding   - onboarding flow
-  EnricherPro  - enricherpro.com - B2B email finding / verification (Dart)
+  EnricherPro  - enricherpro.com - B2B email finding / verification (Flutter +
+                 Cloudflare Pages worker v5.3; internal tool; blocked on
+                 MillionVerifier key + deploy confirmation) [HANDOFF-PR]
   CookieVerify - cookieverify.com - LinkedIn cookie validation
 
   MARKETING / CONTENT SITES
-  MyBusinessInUSA  - mybusinessinusa.com - US market entry lead gen hub
-  AmericanAbroad   - americanabroad.net - expat resource hub
-  AmericanInFrance - companion site
+  MyBusinessInUSA  - mybusinessinusa.com - US market entry lead gen hub.
+                 Hostinger FTP deploy. [HANDOFF-PR]
+  AmericanAbroad   - americanabroad.net - expat resource hub; local-rep
+                 recruiting campaign pending. Hostinger FTP deploy. [HANDOFF-PR]
+  AmericanInFrance - americaninfrance.fr - companion site; hosting route
+                 unverified. [HANDOFF-PR]
+  puentelatin-website - puentelatin.com - Spanish-first LatAm-to-USA marketing
+                 site (Next.js 14, Supabase, Resend, Hostinger). PRIVATE repo.
+                 Deploy route unverified. [HANDOFF-PR]
+  uslaunchhub  - uslaunchhub.com - US launch outlet, static, GitHub Pages
+                 [HANDOFF-PR]
+  gershonconsulting-org - gershonconsulting.org - Insights outlet, static,
+                 GitHub Pages [HANDOFF-PR]
+  gershonconsulting-net, businessexport-org, businessfrance-us,
+  monbusinessauxetatsunis - 2026-10-11 stub outlet sites (6 KB each) sharing the
+                 articles template. No HANDOFF yet.
+  events-gershon-ai, ICP, sales - already have HANDOFF.txt on main (sales also
+                 has an open nightly design branch).
   ROI              - roi.gershoncrm.com - ROI calculator sales tool
   attia            - attia.net front end
 
@@ -120,26 +142,35 @@ or their own domain. Where a live URL is marked (verify), confirm it first.
        family, gershonAI, social. Each carries that repo's stack,
        deploy route, done/pending items, known bugs, the single next
        action, and its own gotchas.
-[TODO] The remaining 24 repos have no HANDOFF.txt yet. They are the
-       quieter ones - the platform suite (client, finance, company,
-       form, report, E2, Xpensepro, groups, LIFollowers, onboarding,
-       EnricherPro, CookieVerify), the marketing sites, and the
-       personal projects. Write one when you next touch any of them.
-[TODO] The GitHub API connector Claude uses is READ-ONLY - it returns
-       403 on write, even though the Claude GitHub App installation
-       shows read+write on code for all repositories. The two are
-       different credentials. Commits therefore go through the GitHub
-       web UI in the browser.
-       THE CHEAPEST WORKING METHOD for a text file, found 2026-09-09:
-       open /new/<branch> (or /edit/<branch>/<path>), set the filename
-       field via the native HTMLInputElement value setter plus an
-       'input' event (the field is React-controlled), then focus
-       .cm-content and use document.execCommand('insertText') after
-       selectAll. Click 'Commit changes...', fill the dialog's text
-       input the same way, click the dialog's 'Commit changes'.
-       No file staging, no uploads, no coordinate clicking.
-       On an EMPTY repo /new/main redirects - click the 'creating a
-       new file' link on the splash page first, then reload.
+[DONE] events-gershon-ai, ICP and sales also carry a HANDOFF.txt on main
+       (found 2026-10-22).
+[PR]   2026-10-22 nightly: HANDOFF.txt written in 8 more repos, each in a
+       docs-only PR from branch nightly/2026-10-22-handoff awaiting merge:
+       uslaunchhub, gershonconsulting-org, AmericanAbroad, puentelatin-website,
+       MyBusinessInUSA, AmericanInFrance, EnricherPro, finance.
+       Unverified items are flagged inside each file.
+[TODO] Still without a HANDOFF.txt: client, company, form, report, E2,
+       Xpensepro, groups, LIFollowers, onboarding, CookieVerify, ROI, attia,
+       gershonconsulting-net, businessexport-org, businessfrance-us,
+       monbusinessauxetatsunis, expenses (empty repo), talkingpoints, and the
+       personal/side repos. form, report and sales had nightly branches from
+       other sessions on 2026-10-22, so they were skipped.
+[DONE] 2026-10-21 UPDATE: the GitHub MCP connector now WRITES (create_branch,
+       push_files, create_or_update_file, create_pull_request; text files up to
+       about 250KB). Still blocked from the cloud: .github/workflows writes
+       (403) and plain git push (proxy). The older note below about a
+       read-only connector is historical.
+[HIST] (2026-09-09) The GitHub API connector was READ-ONLY - 403 on write -
+       so commits went through the GitHub web UI in the browser.
+       THE CHEAPEST WORKING BROWSER METHOD for a text file: open
+       /new/<branch> (or /edit/<branch>/<path>), set the filename field via
+       the native HTMLInputElement value setter plus an 'input' event (the
+       field is React-controlled), then focus .cm-content and use
+       document.execCommand('insertText') after selectAll. Click 'Commit
+       changes...', fill the dialog's text input the same way, click the
+       dialog's 'Commit changes'. On an EMPTY repo /new/main redirects -
+       click the 'creating a new file' link on the splash page first, then
+       reload.
 
 6. WHAT AN INCOMING AI SHOULD DO FIRST
 ----------------------------------------------------------------
@@ -151,6 +182,108 @@ or their own domain. Where a live URL is marked (verify), confirm it first.
    README and the recent commits, then WRITE one before doing anything else.
 4. Work in small shippable increments. Ship, then report with a GREEN CHECK and
    a link, or a RED CROSS and 3 real options.
+
+7. STATE AS OF 2026-11-07 - OPEN PRs TO MERGE, IN ORDER, AND DEPLOY STEPS
+----------------------------------------------------------------
+Source of truth for the ordering: the artifact 'PR Merge Queue v9'
+(claude.ai/artifact/QHFLJfkKVqRBnC5L74agA4). If it disagrees with this
+section, the artifact is newer. Numbers are PR numbers in the named repo.
+Merge order below is per repo, top to bottom. Never merge a PR marked
+'replaces' before checking that the replaced PR is closed, not merged.
+
+Tooling notes for AIs working from the cloud:
+  * git push and gh are blocked. Use the GitHub MCP connector.
+  * MCP writes work for files up to about 250KB.
+  * .github/workflows files cannot be written (403). A human must add them.
+
+Per repo (merge order, then deploy step after merge):
+
+  gershonAI
+    Merge : #4 -> #6
+    Deploy: gershon.ai hub is a MANUAL upload of index.html + internal.html
+            to the Cloudflare Pages project 'gershon-ai' (Charles).
+
+  ICP
+    Merge : #3
+    Deploy: needs its Cloudflare/host Deploy Hook triggered after merge.
+
+  task
+    Merge : #15 -> #16 (replaces #13) and #17
+            NEVER deploy #13 (superseded by #16).
+    Deploy: client-platform-matrix edge function is deployed live at v5; the
+            repo now matches it via #15, so no redeploy is needed for that
+            function. Deploy anything else per the task HANDOFF.txt.
+
+  publish
+    Merge : #13
+    Deploy: per the repo's own HANDOFF/README (no special step recorded).
+
+  radar
+    Merge : #21 (includes a DB migration - apply it) -> #23
+            #22 (replaces #16)
+    Deploy: redeploy the Supabase edge functions daily-report, health-check
+            and monthly-report from main after merge. Apply the #21
+            migration before the functions go live.
+
+  form
+    Merge : #9
+    Deploy: per the repo's own HANDOFF.txt.
+
+  client
+    Merge : #8, then #9 (replaces #4), then #10 (replaces #5)
+    Note  : #10 needs .github/workflows/deploy-cron.yml added by a HUMAN
+            (the connector token cannot write workflow files). Charles or
+            Ariel adds it in the GitHub web UI.
+    Deploy: per the repo's own HANDOFF.txt after the workflow file exists.
+
+  social
+    Merge : #16, #15, #13, then #14 -> #19, then rebase #18 and merge it.
+    Note  : default branch is not main (see section 4); merge into the
+            default branch.
+    Deploy: per the social HANDOFF.txt.
+
+  linalysis
+    Merge : #6
+    Deploy: push-to-deploy via GitHub Actions on merge.
+
+  socialtracking
+    Merge : #2
+    Deploy: per the repo's own docs.
+
+  client (second batch)
+    Merge : #6 (after the client items above)
+
+  task (second batch)
+    Merge : #2 (after the task items above)
+
+  talkingpoints
+    Merge : #22 (replaces #18), then #21 (replaces #6)
+    Deploy: per the repo's own docs.
+
+  nexashare
+    Merge : #43, then #44
+    Deploy: after #44, release the Chrome extension as version 1.2.34
+            (Charles, via the extension publishing panel).
+
+Deploy facts that are NOT visible from any single repo:
+  * gershon.ai hub: manual upload of index.html + internal.html to the
+    Cloudflare Pages project 'gershon-ai'.
+  * radar: Supabase functions daily-report, health-check, monthly-report must
+    be redeployed from main.
+  * task: client-platform-matrix edge function is deployed at v5; repo
+    matches it once #15 is merged.
+  * health.gershon.ai: its code is NOT in any repo. Do not look for it; find
+    out where it is hosted before touching it.
+  * ICP: needs its Deploy Hook triggered to go live.
+  * events-gershon-ai: the Cloudflare build command should be
+    'npm run build'. Check and correct it in the Cloudflare dashboard.
+  * americanabroad.net: deploys by FTP from main ONLY. The live site is stale;
+    main already fixes the JS error and the phone overflow, so a deploy from
+    main is all that is needed.
+  * dash.gershoncrm.com: the live site is a hand-uploaded zip. gershonCRM #2
+    and the Monday job are NOT deployed there yet.
+
+Superseded PRs (do not merge): memory #2 (replaced by this file).
 
 ================================================================
 END OF MASTER HANDOFF
