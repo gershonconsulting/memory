@@ -1,0 +1,27 @@
+name: Preview deploy (nightly branches)
+# Install as .github/workflows/preview-nightly.yml in gershonconsulting/company.
+# Deploys nightly/** branches to a Cloudflare Pages PREVIEW alias only - never production.
+# Preview URL: https://<branch, lowercased, / -> -, max 28 chars>.gershon-company.pages.dev
+on:
+  push:
+    branches: ['nightly/**']
+  workflow_dispatch:
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Preview alias
+        id: alias
+        run: echo "name=$(echo '${{ github.ref_name }}' | tr 'A-Z' 'a-z' | sed 's/[^a-z0-9]/-/g' | cut -c1-28 | sed 's/-*$//')" >> "$GITHUB_OUTPUT"
+      - run: npm install --no-audit --no-fund
+      - run: npx @cloudflare/next-on-pages
+      - name: Deploy preview
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .vercel/output/static --project-name=gershon-company --branch=${{ steps.alias.outputs.name }} --commit-dirty=true
