@@ -298,8 +298,9 @@ alias only). NOT installed in any repo yet: Charles copies <repo>.yml to
 
 8. REPOS ADDED TO THE INDEX 2026-11-19 (were missing from section 4)
 ----------------------------------------------------------------
-Facts are from each repo's file tree / GitHub description on 2026-11-19; read
-the repo's own HANDOFF for detail. 'unknown' = not stated in what was read.
+Facts are from each repo's file tree / README / GitHub description on
+2026-11-19; read the repo's own HANDOFF for detail. 'unknown' = not stated in
+what was read.
   gauge        - JavaScript; has extension/, site/, store/, test/ folders.
                  Created 2026-11-15. Live URL and deploy route unknown.
                  [HANDOFF]
@@ -308,11 +309,15 @@ the repo's own HANDOFF for detail. 'unknown' = not stated in what was read.
                  [HANDOFF]
   harvey       - Python agent project (harvey.yaml, skills/, prompts/,
                  Dockerfile). Live URL unknown. [HANDOFF]
-  crm          - TypeScript / Next.js app (prisma/, wrangler.toml). Created
-                 2026-11-06. Live URL unknown. [HANDOFF]
+  crm          - crm.gershon.ai (target) - standalone Streak-style CRM pilot.
+                 React/Vite + Express + Drizzle + PostgreSQL; prepared for the
+                 Hostinger VPS (PM2, nginx). Production deploy and GC pipeline
+                 migration NOT complete; deploy workflow is a template.
+                 Different from gershonCRM. [HANDOFF]
   sales        - JavaScript on Cloudflare (wrangler.toml, schema.sql). [HANDOFF]
   socialtracking, publish - TypeScript / Next.js apps with prisma and
                  wrangler.toml; see merge order in section 7. [HANDOFF]
+                 (publish tree not re-read; verify.)
   talkingpoints - JavaScript on Cloudflare (functions/, wrangler.toml);
                  HANDOFF-for-Ariel.md / HANDOFF-for-Charles.md also present.
                  [HANDOFF]
