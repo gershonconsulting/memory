@@ -4,7 +4,7 @@ MASTER HANDOFF - GERSHON CONSULTING PLATFORM PORTFOLIO
 Owner   : Olivier Attia, Founder / CTO, Gershon Consulting LLC
 Contact : oattia@gmail.com | report@gershonconsulting.com
 GitHub  : github.com/gershonconsulting  (56 repos listed 2026-11-19)
-Updated : 2026-11-19 (see section 7 for the merge/deploy state per repo, section 8 for the 2026-11-19 index additions)
+Updated : 2026-11-21 (section 9 = 2026-11-21 status; section 7 = merge/deploy state per repo as of 11-07; section 8 = 2026-11-19 index additions)
 Written by: Claude (Anthropic), under the token-limit handoff protocol - see section 1.
 ================================================================
 
@@ -191,6 +191,7 @@ Marker [HANDOFF-PR] = HANDOFF.txt written 2026-10-22, in an open PR awaiting mer
 
 7. STATE AS OF 2026-11-07 - OPEN PRs TO MERGE, IN ORDER, AND DEPLOY STEPS
 ----------------------------------------------------------------
+(Historical queue; section 9 below is newer and wins where they disagree.)
 Source of truth for the ordering: the artifact 'PR Merge Queue v9'
 (claude.ai/artifact/QHFLJfkKVqRBnC5L74agA4). If it disagrees with this
 section, the artifact is newer. Numbers are PR numbers in the named repo.
@@ -332,6 +333,41 @@ what was read.
                  (SelectUSA 2027, WhisperYachts). PRIVATE. cPanel host; a push
                  does NOT publish (deploy cron not installed). [HANDOFF]
                  added by PR #1 on 2026-11-19.
+
+9. 2026-11-21 STATUS (nightly; replace this block each night, do not stack)
+----------------------------------------------------------------
+LIVE TODAY (versions as deployed):
+  sales 1.4.1       Claude campaigns pages (PR #11). Push-to-deploy, ~5 min
+                    after merge to main; live version is APP_VERSION in the code.
+  talkingpoints 1.14.1
+  radar 1.22.1      Health RED: SUPABASE_SERVICE_KEY and the AI binding are
+                    missing on Pages project gershon-radar.
+  finance 2.23.5    Xero login DOWN: XERO_CLIENT_ID / XERO_CLIENT_SECRET missing
+                    in Pages Production environment.
+  social 4.80.2     Collector reading 0 posts since the LinkedIn layout change;
+                    needs extension 0.27.0 selectors.
+  pulse 5.15.4, client 1.4.35, company 1.0.59, report 1.1.1, welcome 0.4.8,
+  publish 0.23.0, icp 1.10.1, linalysis 0.3.9, gauge 0.3.0
+
+MERGED BUT NOT LIVE (direct / zip-upload Pages projects; a human upload is needed):
+  hub gershonAI 1.5.5   (Pages gershon-ai)
+  dash 1.2.4            (Pages gershon-dash)
+  expenses title rename, PR #2 (Pages gershon-expenses)
+  gauge 0.4.0
+  americanabroad        FTP workflow never ran.
+
+HELD FOR OLIVIER'S OK (do NOT merge without it):
+  nexashare #51
+  publish #39
+  sales #12   (Streak key settings - secrets)
+  harvey #14  (H01 CEO+1 targeting; Windows CI is red)
+  expenses #1 (personal vs business burn page)
+
+ROUTE NOTES:
+  * GitHub connector writes work, including push_files.
+  * git push from the cloud returns 403.
+  * Workflow files (.github/workflows) cannot be written from the cloud.
+  * The expenses repo is not readable from the cloud CLI (use the connector).
 
 ================================================================
 END OF MASTER HANDOFF
