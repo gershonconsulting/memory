@@ -3,8 +3,8 @@ MASTER HANDOFF - GERSHON CONSULTING PLATFORM PORTFOLIO
 ================================================================
 Owner   : Olivier Attia, Founder / CTO, Gershon Consulting LLC
 Contact : oattia@gmail.com | report@gershonconsulting.com
-GitHub  : github.com/gershonconsulting  (56 repos listed 2026-11-19)
-Updated : 2026-11-21 (section 9 = 2026-11-21 status; section 7 = merge/deploy state per repo as of 11-07; section 8 = 2026-11-19 index additions)
+GitHub  : github.com/gershonconsulting  (59 repos listed 2026-11-27)
+Updated : 2026-11-27 (section 10 = 2026-11-27 index completion; section 9 = 2026-11-21 status; section 7 = merge/deploy state per repo as of 11-07; section 8 = 2026-11-19 index additions)
 Written by: Claude (Anthropic), under the token-limit handoff protocol - see section 1.
 ================================================================
 
@@ -95,9 +95,9 @@ Marker [HANDOFF-PR] = HANDOFF.txt written 2026-10-22, in an open PR awaiting mer
   E2           - e2.gershoncrm.com - E2-visa lead generation
   Xpensepro    - expenses.gershoncrm.com - expense management.
                  WARNING: default branch claude/expense-tracking-app-OGkCs
-  groups       - LinkedIn Group Intelligence
-  LIFollowers  - LinkedIn follower growth service
-  onboarding   - onboarding flow
+  groups       - LinkedIn Group Intelligence (EMPTY repo; stub HANDOFF.txt 2026-11-27)
+  LIFollowers  - LinkedIn follower growth service (EMPTY repo; stub HANDOFF.txt 2026-11-27)
+  onboarding   - onboarding flow (EMPTY repo; stub HANDOFF.txt 2026-11-27)
   EnricherPro  - enricherpro.com - B2B email finding / verification (Flutter +
                  Cloudflare Pages worker v5.3; internal tool; blocked on
                  MillionVerifier key + deploy confirmation) [HANDOFF-PR]
@@ -122,7 +122,7 @@ Marker [HANDOFF-PR] = HANDOFF.txt written 2026-10-22, in an open PR awaiting mer
                  GitHub Pages [HANDOFF-PR]
   gershonconsulting-net, businessexport-org, businessfrance-us,
   monbusinessauxetatsunis - 2026-10-11 stub outlet sites (6 KB each) sharing the
-                 articles template. HANDOFF.txt now on main in each (checked 2026-11-19).
+                 articles template. HANDOFF.txt now on main in each (re-checked 2026-11-27).
   events-gershon-ai, ICP, sales - already have HANDOFF.txt on main (sales also
                  has an open nightly design branch).
   ROI              - roi.gershoncrm.com - ROI calculator sales tool
@@ -131,6 +131,7 @@ Marker [HANDOFF-PR] = HANDOFF.txt written 2026-10-22, in an open PR awaiting mer
   PERSONAL / SIDE
   pelicanbaysintmaarten + pelicanbay-calendar - pelicanbaysintmaarten.com,
                  short-term rental villa in Sint Maarten, plus booking calendar
+                 (pelicanbay-calendar is an EMPTY repo; stub HANDOFF.txt 2026-11-27)
   songandstories - songandstories.com - Souvenir memory-film maker.
                  WARNING: default branch claude/youtube-lyrics-generator-s3uGh
   HomeVideoCreation - video creation pipeline
@@ -158,9 +159,12 @@ Marker [HANDOFF-PR] = HANDOFF.txt written 2026-10-22, in an open PR awaiting mer
 [DONE] 2026-11-19 audit of every repo updated in the last 60 days: all have a
        HANDOFF.txt (or, for AmericanAbroad and expenses, HANDOFF.md) on main.
        The last gap, gershonconsulting-website, was filled by its PR #1.
-[TODO] Older/inactive repos still without a HANDOFF.txt (not re-checked
-       2026-11-19, not updated in 60 days): Xpensepro, groups, LIFollowers,
-       onboarding, ROI, attia, and the personal/side repos.
+[DONE] 2026-11-27 audit of the older/inactive repos: every repo now has a
+       HANDOFF.txt (or HANDOFF.md) on main. The last gaps (campaign, campbx,
+       and the 5 empty repos groups, LIFollowers, onboarding, AllanSpaceX,
+       pelicanbay-calendar) were filled 2026-11-27 - see section 10.
+       Only the files at the repo root were checked; contents of the older
+       ones were not re-verified.
 [DONE] 2026-10-21 UPDATE: the GitHub MCP connector now WRITES (create_branch,
        push_files, create_or_update_file, create_pull_request; text files up to
        about 250KB). Still blocked from the cloud: .github/workflows writes
@@ -368,6 +372,32 @@ ROUTE NOTES:
   * git push from the cloud returns 403.
   * Workflow files (.github/workflows) cannot be written from the cloud.
   * The expenses repo is not readable from the cloud CLI (use the connector).
+
+10. REPOS ADDED / COMPLETED 2026-11-27 (nightly push; 59 repos in the org)
+----------------------------------------------------------------
+One line per repo that was missing from section 4 or had no HANDOFF.
+  campaign     - campaign.gershon.ai (NOT live; research + spec only, no code).
+                 LinkedIn drip-campaign platform fed by radar, replaces Botdog.
+                 Planned: Cloudflare Pages + Supabase, Unipile (undecided).
+                 PUBLIC repo with Gershon campaign screenshots: make private.
+                 Open PRs #1 (preview) and #7 (real prospect lists) - untouched.
+                 [HANDOFF]
+  campbx       - PRIVATE markdown-only knowledge base for a personal recovery
+                 dispute (created 2026-11-22). No code or deploy. Sensitive:
+                 keep its handoff generic. [HANDOFF]
+  tools        - PRIVATE JavaScript repo (created 2026-11-24). [HANDOFF]
+  gauge, naomie, harvey, crm, sales, socialtracking, publish, talkingpoints,
+  MCP, events-gershon-ai, expenses, gershonconsulting-website - see section 8.
+  groups, LIFollowers, onboarding, AllanSpaceX, pelicanbay-calendar - EMPTY
+                 repos (no commits). Stub HANDOFF.txt created directly on main
+                 2026-11-27; each asks whether the project is still wanted.
+                 AllanSpaceX is PRIVATE and its purpose is unknown.
+  Xpensepro, ROI, attia, cookie, datenight, balines57, HomeVideoCreation,
+  saascredithub, songandstories, pelicanbaysintmaarten, CookieVerify, E2 -
+                 older repos, HANDOFF.txt present on main (root checked
+                 2026-11-27). saascredithub and cookie are PRIVATE.
+  Repos still WITHOUT any handoff file: none (HANDOFF.md accepted for
+  AmericanAbroad and expenses).
 
 ================================================================
 END OF MASTER HANDOFF
